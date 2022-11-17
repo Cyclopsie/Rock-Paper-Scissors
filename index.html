@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+
+        <script>
+            //prompts the player's selection
+            let playerResponse = Object(prompt("Please enter your weapon of choice!"));
+                //make prompt case insenstive
+                playerSelection = playerResponse.toLowerCase();
+                console.log(playerSelection);
+
+                //array of computer's choices
+                const getComputerChoice = ["rock", "paper", "scissors"];
+                console.log(getComputerChoice);
+
+                //randomize computer selection within array
+                let computerSelection = getComputerChoice[Math.floor(Math.random()*getComputerChoice.length)];
+                console.log(computerSelection);
+
+            function playRound(playerSelection, computerSelection) {
+                if ('rock' < 'paper') {
+                    return ("loser");
+                }  else if ('rock' > 'scissors') {
+                   return ("Winner! Rock beats Scissors");
+                }
+                    
+                
+                 //else if (playerSelection = 'rock'), (computerSelection = 'scissors')
+                   // console.log(You win! Computer is a loser! Rock beats Scissors);
+            }
+           console.log(playRound(playerSelection, computerSelection));
+
+            //const playerSelection = "rock";
+            //const computerSelection = getComputerChoice();
+            //console.log(playRound(playerSelection, computerSelection));
+
+
+        </script>
+
+
+    </body>
+</html>
