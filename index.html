@@ -7,6 +7,8 @@
     <body>
 
         <script>
+
+
             //prompts the player's selection
             let playerResponse = Object(prompt("Please enter your weapon of choice!"));
                 //make prompt case insenstive
@@ -21,18 +23,24 @@
                 let computerSelection = getComputerChoice[Math.floor(Math.random()*getComputerChoice.length)];
                 console.log(computerSelection);
 
+               
+
+
             function playRound(playerSelection, computerSelection) {
-                if ('rock' < 'paper') {
-                    return ("loser");
-                }  else if ('rock' > 'scissors') {
-                   return ("Winner! Rock beats Scissors");
-                }
-                    
-                
-                 //else if (playerSelection = 'rock'), (computerSelection = 'scissors')
-                   // console.log(You win! Computer is a loser! Rock beats Scissors);
+              
+
+                if (((playerSelection == "rock") && (computerSelection == "paper")) || ((playerSelection == "paper") && (computerSelection == "scissors")) ||
+                    ((playerSelection == "scissors") && (computerSelection == "rock")) ) {
+                    return "Loser...Loser...chicken dinner. " + playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase() +" " + "loses to " + computerSelection.charAt(0).toUpperCase()+computerSelection.slice(1).toLowerCase()
+                } else if (((playerSelection == "rock") && (computerSelection == "scissors")) || ((playerSelection == "scissors") && (computerSelection == "paper")) ||
+                    ((playerSelection == "paper") && (computerSelection == "rock"))) {
+                    return "Winner!" +" " + playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase()  + " " + "beats" + " " +    computerSelection.charAt(0).toUpperCase()+ computerSelection.slice(1).toLowerCase();
+                } else if (((playerSelection == "rock") && (computerSelection == "rock")) || ((playerSelection == "paper") && (computerSelection == "paper")) ||
+                    ((playerSelection == "scissors") && (computerSelection == "scissors"))){
+                    return playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase() + " " + "ties " + computerSelection.charAt(0).toUpperCase()+ computerSelection.slice(1).toLowerCase();
+                } 
             }
-           console.log(playRound(playerSelection, computerSelection));
+           
 
             //const playerSelection = "rock";
             //const computerSelection = getComputerChoice();
