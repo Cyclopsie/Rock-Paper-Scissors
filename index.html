@@ -2,53 +2,104 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Rock Paper Scissors</title>
+        <title>Rock, Paper & Scissors</title>
     </head>
     <body>
-
         <script>
 
+            let computerScore = 0;
+            let gameScore = 1;
+            let drawScore = 0;
+            let playerScore = 0;
+            let pWinner = "You are the Champion!";
+            let cWinner = "You are DEFEATED!!!!";
+            let dWinner = "The game is a DRAWWWWW!"
 
-            //prompts the player's selection
-            let playerResponse = Object(prompt("Please enter your weapon of choice!"));
-                //make prompt case insenstive
-                playerSelection = playerResponse.toLowerCase();
-                console.log(playerSelection);
 
-                //array of computer's choices
+             //loop for 5 games
+                //loop for 5 games and establish scores
+                //gameScore has to equal 5
+                //if playerScore >= to 3 === Winner
+                //if computerScore >= to 3 === Player Loses
+                //if drawScore >= 3 === no Winner
+                    //call the playRound function to continue the scoreboard
+            for (let gameScore = 1; gameScore <= 5; gameScore++) {
+                    //   for (gameScore = 1; gameScore <=5; gameScore++) {
+                            //define game with score board
+                                //establish point systems for 
+                                    //playerScore
+                                    //computerScore
+                                    //drawScore
+                                    //gameScore
+                
+
+                //prompt pop up window for player
+                let playerResponse = window.prompt("Rock, Paper, or Scissors are your options. What will it be for Round " + gameScore);
+                    playerSelection = playerResponse.toLowerCase();
+                    console.log(playerSelection);
+
+                //define selection for computer
                 const getComputerChoice = ["rock", "paper", "scissors"];
-                console.log(getComputerChoice);
-
-                //randomize computer selection within array
                 let computerSelection = getComputerChoice[Math.floor(Math.random()*getComputerChoice.length)];
-                console.log(computerSelection);
+                    console.log(computerSelection);
 
-               
+                
+
+                //define a playRound
+                    //define winning a round
+                    //define losing a round
+                    //define a draw in a round
+                
+                  
+
+          //  function playRound(playerSelection, computerSelection) {
+
+                if (((playerSelection === "rock") && (computerSelection === "scissors")) || 
+                ((playerSelection === "scissors") && (computerSelection === "paper")) || 
+                ((playerSelection === "paper") && (computerSelection === "rock"))){
+                    //Player Wins, computer loses
+                    playerScore++;
+                  //  gameScore++;
+                  //  console.log("winner");
+                    if(((playerScore >= 3) && (gameScore == 5))|| ((playerScore > computerScore) && (gameScore == 5))) {
+                        console.log(pWinner);
+                    }
+                    
+
+                } else if (((playerSelection === "rock") && (computerSelection === "rock")) || 
+                ((playerSelection === "paper") && (computerSelection === "paper")) || 
+                ((playerSelection === "scissors") && (computerSelection === "scissors"))){
+                    // Tie 
+                    drawScore++;
+                       if((drawScore >= 3) && (gameScore == 5)) {
+                            console.log(dWinner)
+                       } else if ((playerScore == 2) && (computerScore == 2) && (gameScore == 5)) {
+                            console.log(dWinner);
+                       }
+                } else {
+                    computerScore++;
+                        if((computerScore >= 3) && (gameScore == 5)) {
+                            console.log(cWinner);
+                        } else if ((computerScore > playerScore) && (gameScore == 5)) {
+                            console.log(cWinner);
+                        } else if ((playerScore < computerScore) && (gameScore == 5)) {
+                            console.log(cWinner);
+                        } 
+                
 
 
-            function playRound(playerSelection, computerSelection) {
-              
+ 
 
-                if (((playerSelection == "rock") && (computerSelection == "paper")) || ((playerSelection == "paper") && (computerSelection == "scissors")) ||
-                    ((playerSelection == "scissors") && (computerSelection == "rock")) ) {
-                    return "Loser...Loser...chicken dinner. " + playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase() +" " + "loses to " + computerSelection.charAt(0).toUpperCase()+computerSelection.slice(1).toLowerCase()
-                } else if (((playerSelection == "rock") && (computerSelection == "scissors")) || ((playerSelection == "scissors") && (computerSelection == "paper")) ||
-                    ((playerSelection == "paper") && (computerSelection == "rock"))) {
-                    return "Winner!" +" " + playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase()  + " " + "beats" + " " +    computerSelection.charAt(0).toUpperCase()+ computerSelection.slice(1).toLowerCase();
-                } else if (((playerSelection == "rock") && (computerSelection == "rock")) || ((playerSelection == "paper") && (computerSelection == "paper")) ||
-                    ((playerSelection == "scissors") && (computerSelection == "scissors"))){
-                    return playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase() + " " + "ties " + computerSelection.charAt(0).toUpperCase()+ computerSelection.slice(1).toLowerCase();
-                } 
-            }
-           
+     
 
-            //const playerSelection = "rock";
-            //const computerSelection = getComputerChoice();
-            //console.log(playRound(playerSelection, computerSelection));
-
+    }
+}
+        
+        console.log("Your score is " + playerScore + " ! ");
+        console.log("The Computer's score is " + computerScore);
+        console.log("We are tied with " + drawScore + " round(s)");
 
         </script>
-
 
     </body>
 </html>
