@@ -8,97 +8,88 @@
         <script>
 
             let computerScore = 0;
-            let gameScore = 1;
             let drawScore = 0;
             let playerScore = 0;
             let pWinner = "You are the Champion!";
             let cWinner = "You are DEFEATED!!!!";
-            let dWinner = "The game is a DRAWWWWW!"
+            let dWinner = "The game is a DRAWWWWW!";
 
+            //shouldn't change
+            const computerChoice = ['rock', 'paper', 'scissors'];  
+        
+                      ////start of game() funtion);
+            function game() {
+                /////for loop game of 5////
+                for ( let i = 1; i < 6; i++) {
 
-             //loop for 5 games
-                //loop for 5 games and establish scores
-                //gameScore has to equal 5
-                //if playerScore >= to 3 === Winner
-                //if computerScore >= to 3 === Player Loses
-                //if drawScore >= 3 === no Winner
-                    //call the playRound function to continue the scoreboard
-            for (let gameScore = 1; gameScore <= 5; gameScore++) {
-                    //   for (gameScore = 1; gameScore <=5; gameScore++) {
-                            //define game with score board
-                                //establish point systems for 
-                                    //playerScore
-                                    //computerScore
-                                    //drawScore
-                                    //gameScore
-                
+                    //prompt should be in the game function to restart the prompt
+                    console.log(computerScore + "\n" + drawScore + "\n" + playerScore + "\n" + i + "\n");
+                        //prompt pop up window for player
+                        let playerSelection = (prompt("Please select you weapon: rock, paper, or scissors")).toLowerCase();
+                        console.log(playerSelection);
+                    
+                        let computerSelection = computerChoice[Math.round(Math.random() * 2)];
+                        console.log(computerSelection);
+                    if (
+                            ((playerScore >= 3) && (i == 5)) || 
+                            ((playerScore > computerScore) && (i == 5))){
+                                return pWinner;
+                        } else if (
 
-                //prompt pop up window for player
-                let playerResponse = window.prompt("Rock, Paper, or Scissors are your options. What will it be for Round " + gameScore);
-                    playerSelection = playerResponse.toLowerCase();
-                    console.log(playerSelection);
+                            ((computerScore >= 3) && (i == 5)) ||
+                            ((playerScore < computerScore) && (i == 5))){
+                                return cWinner;
+                   
+                        } else if (
+            
+                            ((drawScore >= 3) && (i == 5)) ||
+                            ((playerScore = computerScore) && (i == 5)) ||
+                            ((drawScore > playerScore) && (drawScore > computerScore) && (i == 5))
 
-                //define selection for computer
-                const getComputerChoice = ["rock", "paper", "scissors"];
-                let computerSelection = getComputerChoice[Math.floor(Math.random()*getComputerChoice.length)];
-                    console.log(computerSelection);
+                        ){
+                                return dWinner;
 
-                
-
-                //define a playRound
-                    //define winning a round
-                    //define losing a round
-                    //define a draw in a round
-                
+                        } else {  
+                            //play another round
+                            playRound(playerSelection, computerSelection);
+                        }
+                }
+            }
+            /////end of game() and loop////
                   
 
-          //  function playRound(playerSelection, computerSelection) {
+        /////beginning of playRound///////
+            function playRound(playerSelection, computerSelection) {
 
-                if (((playerSelection === "rock") && (computerSelection === "scissors")) || 
-                ((playerSelection === "scissors") && (computerSelection === "paper")) || 
-                ((playerSelection === "paper") && (computerSelection === "rock"))){
+                if (playerSelection === computerSelection){
+                    drawScore++; //TIE
+                } else if (
+                    (playerSelection === 'rock' && computerSelection === 'scissors') || 
+                    (playerSelection === 'scissors' && computerSelection === 'paper') || 
+                    (playerSelection === 'paper' && computerSelection === 'rock')
+                ){
                     //Player Wins, computer loses
-                    playerScore++;
-                  //  gameScore++;
-                  //  console.log("winner");
-                    if(((playerScore >= 3) && (gameScore == 5))|| ((playerScore > computerScore) && (gameScore == 5))) {
-                        console.log(pWinner);
-                    }
-                    
-
-                } else if (((playerSelection === "rock") && (computerSelection === "rock")) || 
-                ((playerSelection === "paper") && (computerSelection === "paper")) || 
-                ((playerSelection === "scissors") && (computerSelection === "scissors"))){
-                    // Tie 
-                    drawScore++;
-                       if((drawScore >= 3) && (gameScore == 5)) {
-                            console.log(dWinner)
-                       } else if ((playerScore == 2) && (computerScore == 2) && (gameScore == 5)) {
-                            console.log(dWinner);
-                       }
+                       playerScore++; 
                 } else {
-                    computerScore++;
-                        if((computerScore >= 3) && (gameScore == 5)) {
-                            console.log(cWinner);
-                        } else if ((computerScore > playerScore) && (gameScore == 5)) {
-                            console.log(cWinner);
-                        } else if ((playerScore < computerScore) && (gameScore == 5)) {
-                            console.log(cWinner);
-                        } 
+                        computerScore++; 
+                } 
                 
-
-
- 
-
-     
-
-    }
-}
+                console.log("Player score is " + playerScore);
+                
+                console.log("Computer score is " + computerScore);
+                
+                console.log("Tie rounds is " + drawScore);       
+                         
+             }
         
-        console.log("Your score is " + playerScore + " ! ");
-        console.log("The Computer's score is " + computerScore);
-        console.log("We are tied with " + drawScore + " round(s)");
+        
+        ///////end of playRound//////
 
+        //have to call the function to start the game
+        console.log(game());
+
+        
+ 
         </script>
 
     </body>
