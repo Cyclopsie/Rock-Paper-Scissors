@@ -3,94 +3,42 @@
     <head>
         <meta charset="utf-8">
         <title>Rock, Paper & Scissors</title>
+        <link rel="stylesheet" href="rps.css">
     </head>
     <body>
-        <script>
+        <h2>Welcome to</h2>
+        <h1>ROCK, PAPER, & SCISSORS</h1>
+        <h2 class="rul">Rules</h2>
+        <div class="rules">There are three choices for your weapons:
+            The sturdy "ROCK", The flimsy "PAPER", or The sharp "SCISSORS"
+            The computer will also selection their weapon of choice. Of course not one weapon is superior to the others. 
+            Each have their weakness. ROCK is powerful against SCISSORS. SCISSORS sharpness is no power towards PAPER. 
+            PAPER is so flimsy it could wrap all the way around ROCK.
+        </div>
 
-            let computerScore = 0;
-            let drawScore = 0;
-            let playerScore = 0;
-            let pWinner = "You are the Champion!";
-            let cWinner = "You are DEFEATED!!!!";
-            let dWinner = "The game is a DRAWWWWW!";
+        <div class="box-option">
+            <div class="call"> To start the game, choose your first weapon:</div>
+            <div class="options">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
 
-            //shouldn't change
-            const computerChoice = ['rock', 'paper', 'scissors'];  
-        
-                      ////start of game() funtion);
-            function game() {
-                /////for loop game of 5////
-                for ( let i = 1; i < 6; i++) {
+            <div class = "results">
+                <div class="pScore">Your score =</div>
+                <div class="cScore">Computer score = </div>
+                <div class ="dScore">Tied rounds =</div>
+            </div>
+        </div>
 
-                    //prompt should be in the game function to restart the prompt
-                    console.log(computerScore + "\n" + drawScore + "\n" + playerScore + "\n" + i + "\n");
-                        //prompt pop up window for player
-                        let playerSelection = (prompt("Please select you weapon: rock, paper, or scissors")).toLowerCase();
-                        console.log(playerSelection);
-                    
-                        let computerSelection = computerChoice[Math.round(Math.random() * 2)];
-                        console.log(computerSelection);
-                    if (
-                            ((playerScore >= 3) && (i == 5)) || 
-                            ((playerScore > computerScore) && (i == 5))){
-                                return pWinner;
-                        } else if (
 
-                            ((computerScore >= 3) && (i == 5)) ||
-                            ((playerScore < computerScore) && (i == 5))){
-                                return cWinner;
-                   
-                        } else if (
-            
-                            ((drawScore >= 3) && (i == 5)) ||
-                            ((playerScore = computerScore) && (i == 5)) ||
-                            ((drawScore > playerScore) && (drawScore > computerScore) && (i == 5))
 
-                        ){
-                                return dWinner;
 
-                        } else {  
-                            //play another round
-                            playRound(playerSelection, computerSelection);
-                        }
-                }
-            }
-            /////end of game() and loop////
-                  
 
-        /////beginning of playRound///////
-            function playRound(playerSelection, computerSelection) {
 
-                if (playerSelection === computerSelection){
-                    drawScore++; //TIE
-                } else if (
-                    (playerSelection === 'rock' && computerSelection === 'scissors') || 
-                    (playerSelection === 'scissors' && computerSelection === 'paper') || 
-                    (playerSelection === 'paper' && computerSelection === 'rock')
-                ){
-                    //Player Wins, computer loses
-                       playerScore++; 
-                } else {
-                        computerScore++; 
-                } 
-                
-                console.log("Player score is " + playerScore);
-                
-                console.log("Computer score is " + computerScore);
-                
-                console.log("Tie rounds is " + drawScore);       
-                         
-             }
-        
-        
-        ///////end of playRound//////
 
-        //have to call the function to start the game
-        console.log(game());
-
-        
- 
-        </script>
+        <!--adding js -->
+        <script src="rps.js"></script> 
 
     </body>
 </html>

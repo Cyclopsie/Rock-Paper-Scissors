@@ -1,0 +1,69 @@
+body {
+    background-color: rgb(193, 150, 233);
+}
+
+h1 {
+    text-align: center;
+    font-family: monospace;
+}
+
+h2 {
+    font-family: monospace;
+    color:rgb(14, 129, 14)
+}
+
+
+.rul,
+.rules {
+    text-align: center;
+    background-color: black;
+    color: rgb(226, 159, 226);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.rul {
+    margin-bottom: 0px;
+    padding-top: 20px;
+}
+
+.rules {
+    font-size: 10px;;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.box-option {
+    font-family: monospace;
+    text-align: center;
+    font-weight: 100;
+    padding: 5px;
+    border-width: 1px;
+    border-style: dotted;
+    border-color: rgb(14, 129, 14);
+    padding-top: 20px;
+}
+
+
+
+.options {
+    text-align: center;
+    padding: 20px;
+    
+}
+
+button {
+    background-color: rgb(32, 4, 32);
+    font-size: 20px;
+    border-radius: 5px;
+    border-color: rgb(226, 159, 226);
+    color: rgb(64, 241, 64);
+
+}
+
+.results {
+    border-radius: 10px;
+    background-color: black;
+    color:rgb(64, 241, 64);
+    padding: 30px;
+}
