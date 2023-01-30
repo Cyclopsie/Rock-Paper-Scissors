@@ -26,18 +26,19 @@ button.addEventListener("click", function(e) {
     updateD();
     updateP();
     //checking the score before using the button clicked
-    if (drawScore >= 3 && gameScore == 5) {
-            stopGame();
+    if (drawScore >= 5) {
+           /// stopGame();
+            declareDWinner();
             return dWinner;
    
-    } else if (((playerScore >= 3) && (gameScore == 5)) || 
-        ((playerScore > computerScore) && (gameScore == 5))){
-            stopGame();
+    } else if (playerScore >= 5 && playerScore > computerScore) {
+           // stopGame();
+            declarePWinner();
             return pWinner;
                 
-    } else if ((computerScore >= 3 && gameScore == 5) ||
-        ((playerScore < computerScore) && gameScore == 5)){
-            stopGame();
+    } else if (computerScore >= 5 && playerScore < computerScore) {
+           // stopGame();
+            declareCWinner();
             return cWinner;
                 
     } else {
@@ -110,7 +111,16 @@ function updateD() {
     document.querySelector('.dScore').textContent = "Tied by " + drawScore + "!";
 }
 
-function displayRound() {
+function declareCWinner() {
+    document.querySelector('.round').textContent = cWinner;
     
 }
 
+function declarePWinner() {
+    document.querySelector('.round').textContent = pWinner;
+    
+}
+function declareDWinner() {
+    document.querySelector('.round').textContent = dWinner;
+    
+}
